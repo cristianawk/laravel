@@ -41,18 +41,33 @@ O arquivo de migração está localizado na  pasta MeuProjeto> database> migrations
 
     public function up()
     {
-        Schema::create('cruds', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->integer('foto');
             $table->string('email');
             $table->string('telefone');
+            $table->text('filename');
             $table->timestamps();
         });
     }
 
-No seguinte comando no seu terminal.
+
+No terminal o seguinte comando:
 
 php artisan migrate
 
 
+No  MySql criando a tabela de clientes:
+
+CREATE TABLE `clientes` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `filename` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+Próximo passo criar as views
