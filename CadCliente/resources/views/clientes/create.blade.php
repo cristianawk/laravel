@@ -3,7 +3,7 @@
 @extends('master')
 @section('content')
 <div class="container">
-  <form method="post" action="{{url('crud')}}">
+  <form method="post" action="{{url('clientes')}}">
     <div class="form-group row">
       {{csrf_field()}}
       <div class="form-group row">
